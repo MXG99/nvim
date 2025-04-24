@@ -1,20 +1,18 @@
 return {
   "ahmedkhalf/project.nvim",
-  event = "VeryLazy",
+  lazy = false, -- Load at startup (you can change this to event-based later)
+  dependencies = { "nvim-telescope/telescope.nvim" }, -- Ensure Telescope is available
   config = function()
     require("project_nvim").setup({
-      -- Automatically detect root dirs using these patterns
+      -- Auto-detect root using common project files
       detection_methods = { "pattern" },
       patterns = { ".git", "Makefile", "package.json", "pyproject.toml" },
 
-      -- Show hidden files in Telescope
+      -- Optional: Show hidden files in Telescope
       show_hidden = true,
-
-      -- Uncomment to manually control which directories are projects
-      -- manual_mode = true,
     })
 
-    -- Load the Telescope extension
+    -- Load Telescope extension
     require("telescope").load_extension("projects")
   end,
 }

@@ -5,3 +5,4 @@
 --
 
 vim.keymap.set("n", "<leader>cD", ":cd %:p:h<CR>:pwd<CR>", { desc = "CD to file's directory" })
+vim.keymap.set("n", "<leader>fp", "<cmd>Telescope projects<CR>", { desc = "Project Picker" })
